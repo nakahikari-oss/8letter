@@ -132,6 +132,11 @@
   .adv-h{font-family:"Noto Serif TC",serif;font-size:14.5px;color:var(--gold);letter-spacing:.1em;margin-bottom:10px}
 
   .read p{color:var(--paper);font-size:14.5px;line-height:1.95;margin-bottom:14px;letter-spacing:.02em}
+  .life p{color:var(--paper);font-size:14.5px;line-height:2.05;margin-bottom:15px;letter-spacing:.02em;text-align:justify}
+  .life p b{color:var(--gold)}
+  .life .lead{font-family:"Noto Serif TC",serif}
+  .rpt .life-p{font-size:13px;line-height:1.95;color:#3a3020;text-align:justify;margin:0 0 10px}
+  .rpt .life-p b{color:#9c2b22}
   .read p b{color:var(--gold)}
   .read .lead{font-family:"Noto Serif TC",serif}
 
@@ -145,6 +150,16 @@
   .pdf-btn:hover{background:rgba(201,168,76,.12)}
   .pdf-btn:disabled{opacity:.5;cursor:wait}
   .pdf-status{font-size:12.5px;color:var(--muted)}
+
+  .gloss{padding:0;overflow:hidden}
+  .gloss summary{cursor:pointer;list-style:none;padding:20px 26px;font-family:"Noto Serif TC",serif;font-size:16px;font-weight:700;letter-spacing:.1em;color:var(--gold);display:flex;align-items:center}
+  .gloss summary::-webkit-details-marker{display:none}
+  .gloss summary::after{content:"▸";margin-left:auto;color:var(--cinnabar-bright);transition:transform .2s}
+  .gloss[open] summary::after{transform:rotate(90deg)}
+  .gloss .gbody{padding:4px 26px 24px}
+  .gloss .gitem{font-size:13.5px;line-height:1.85;color:var(--paper-dim);margin-bottom:11px}
+  .gloss .gitem b{color:var(--gold);font-weight:500}
+  .gloss .gsub{font-size:12px;color:var(--muted);letter-spacing:.14em;margin:18px 0 9px;border-top:1px dashed var(--line);padding-top:14px}
 
   /* 列印命書（宣紙底） */
   .rpt{position:absolute;left:-9999px;top:0;width:760px;background:#f3ead6;color:#2a2218;font-family:"Noto Sans TC",sans-serif;padding:48px 44px;box-sizing:border-box}
@@ -208,8 +223,33 @@
       <span class="pdf-status" id="pdfStatus"></span>
       <button class="pdf-btn" id="pdfBtn">匯出 PDF 命書</button>
     </div>
+    <details class="card gloss">
+      <summary>名詞速查 · 看不懂的詞點這裡</summary>
+      <div class="gbody">
+        <div class="gsub">基本結構</div>
+        <div class="gitem"><b>八字／四柱</b>　把出生的年、月、日、時各換成兩個字（一個天干＋一個地支），合起來八個字，就是你的八字；分成四組就是四柱。</div>
+        <div class="gitem"><b>天干</b>　甲乙丙丁戊己庚辛壬癸這十個字，代表外顯、表面的能量。</div>
+        <div class="gitem"><b>地支</b>　子丑寅卯⋯亥這十二個字（就是十二生肖那組），代表內藏、根基的能量。</div>
+        <div class="gitem"><b>藏干</b>　每個地支裡頭暗藏的天干，是更細微的力量來源。</div>
+        <div class="gitem"><b>日主／日元</b>　日柱的天干，代表「你本人」，整張命盤都以它為中心來看。</div>
+        <div class="gitem"><b>五行</b>　金木水火土，萬物分成這五類；彼此有「相生」（互相幫忙）和「相剋」（互相壓制）。</div>
+        <div class="gsub">強弱與喜忌</div>
+        <div class="gitem"><b>旺衰／強弱</b>　你本人（日主）在這張盤裡力量是偏強還是偏弱。</div>
+        <div class="gitem"><b>喜用（有利的五行）</b>　能讓命局平衡、對你有幫助的五行。</div>
+        <div class="gitem"><b>忌神（不利的五行）</b>　會讓命局失衡、對你較不利的五行。</div>
+        <div class="gsub">十神 · 八個字相對於「你」的十種角色</div>
+        <div class="gitem"><b>比肩</b> 同輩手足　<b>劫財</b> 夥伴對手　<b>食神</b> 才華福氣　<b>傷官</b> 創意鋒芒　<b>偏財</b> 機會財／交際　<b>正財</b> 穩定財／務實　<b>正官</b> 事業名分　<b>七殺</b> 壓力挑戰　<b>正印</b> 學問貴人　<b>偏印</b> 靈感偏學</div>
+        <div class="gsub">運勢與時間</div>
+        <div class="gitem"><b>大運</b>　每十年一個階段的運勢走向。<b>起運</b>＝幾歲開始走第一個大運。</div>
+        <div class="gitem"><b>流年／流月</b>　某一年／某一個月的運勢。</div>
+        <div class="gsub">地支之間的關係（刑沖合會）</div>
+        <div class="gitem"><b>合</b> 聚合相助　<b>沖</b> 衝突變動　<b>刑</b> 磨擦糾結　<b>害</b> 暗中不和</div>
+        <div class="gitem"><b>提綱</b>＝月柱，象徵根基、事業與成長環境。<b>配偶宮</b>＝日支，象徵婚姻感情。</div>
+        <div class="gitem"><b>反吟／伏吟</b>　和大運的干支正好相剋相沖（反吟，主動盪）、或完全一樣（伏吟，主舊事重演）。</div>
+      </div>
+    </details>
     <div class="card">
-      <h2>命盤四柱</h2>
+      <h2>命盤四柱（你的八字）</h2>
       <div class="meta" id="basics"></div>
       <div class="chart" id="chart" style="margin-top:18px"></div>
       <div style="margin-top:18px;font-size:12px;color:var(--muted);letter-spacing:.12em">地支刑沖合會</div>
@@ -217,24 +257,29 @@
     </div>
 
     <div class="card">
-      <h2>五行分布</h2>
+      <h2>一生批命總覽</h2>
+      <div class="life" id="lifeReading"></div>
+    </div>
+
+    <div class="card">
+      <h2>五行分布（金木水火土各多少）</h2>
       <div class="wux" id="wux"></div>
     </div>
 
     <div class="card">
-      <h2>旺衰 · 用神</h2>
+      <h2>命格強弱 · 對你有利的五行</h2>
       <div class="verdict" id="verdict"></div>
       <div style="margin-top:14px" id="useful"></div>
     </div>
 
     <div class="card">
-      <h2>大運</h2>
+      <h2>大運（十年一大段的運勢）</h2>
       <div class="meta" id="luckMeta" style="margin-bottom:14px"></div>
       <div class="luck" id="luck"></div>
     </div>
 
     <div class="card">
-      <h2>流年</h2>
+      <h2>流年 · 看某一年的運勢</h2>
       <div class="ln-input">
         <div><label>查詢西元年</label><input id="lnY" type="number" value="2026" min="1901" max="2120"></div>
         <button id="lnGo">查流年</button>
@@ -242,7 +287,7 @@
       <div class="ln-strip" id="lnStrip"></div>
       <div class="ln-detail" id="lnDetail"></div>
       <div id="lySection" style="margin-top:24px;display:none">
-        <div style="font-size:12px;color:var(--muted);letter-spacing:.12em;margin-bottom:12px">流月（<span id="lyYear"></span> 年・點月份查看）</div>
+        <div style="font-size:12px;color:var(--muted);letter-spacing:.12em;margin-bottom:12px">流月 · 每個月的運勢（<span id="lyYear"></span> 年・點月份查看）</div>
         <div class="ln-strip" id="lyStrip"></div>
         <div class="ln-detail" id="lyDetail"></div>
       </div>
@@ -255,7 +300,7 @@
     </div>
 
     <div class="card">
-      <h2>推命解讀</h2>
+      <h2>整體解讀</h2>
       <div class="read" id="read"></div>
       <div class="disclaim">
         <b>關於這份解讀</b>　排盤（四柱、五行、十神、節氣、大運、流年干支）是公開且確定的曆算，輸入正確即唯一。但<b>解讀屬於詮釋層</b>：旺衰、用神採通用「扶抑法」並把三合三會等成局力量加權估算，刑沖合會的吉凶各派看法不一，同一張盤不同師父可能講出不同結論，且整套系統至今沒有可驗證的預測效力。請當成一種自洽的象徵語言來玩味，<b>切勿用於醫療、財務、法律或重大人生決定</b>。節氣交界日與立春前後誤差最大，建議再對照權威萬年曆。
@@ -327,14 +372,14 @@ const SS_STANCE={
 const MONTH_NAME=["正","二","三","四","五","六","七","八","九","十","冬","臘"];
 const JIE_DATE=["2/4","3/6","4/5","5/6","6/6","7/7","8/8","9/8","10/8","11/7","12/7","1/6"];
 function flagAdvice(txt){
- if(txt.includes("沖日支")) return "感情、居所或自身狀態較易變動，重要決定多緩一步、多與另一半溝通";
- if(txt.includes("沖提綱")) return "事業或家庭的根基處於轉折，宜穩中求變、別貿然全盤更動";
- if(txt.includes("反吟")) return "局勢起伏較大，守成為上、避免大舉擴張或正面衝突";
- if(txt.includes("伏吟")) return "舊事、舊關係可能重來，留意重蹈覆轍、趁機把舊問題了結";
- if(txt.includes("刑")) return "人際摩擦、是非口舌或內心糾結偏多，修身養性、契約文件看仔細";
- if(txt.includes("害")) return "暗處的不和或小人之事，低調謹慎、少捲是非";
- if(txt.includes("助喜用")) return "有貴人或機緣來合助，值得主動把握、順勢推進";
- if(txt.includes("沖")) return "相關宮位有變動之象，順勢調整、別硬碰";
+ if(txt.includes("沖日支")) return "感情、住的地方或自己的狀態比較容易有變動，重要的決定多緩一步、多跟另一半商量";
+ if(txt.includes("沖提綱")) return "事業或家庭的根基容易遇到轉折，最好穩穩來、別貿然整個翻新";
+ if(txt.includes("反吟")) return "情勢起伏比較大，以守為主，避免大動作或正面衝突";
+ if(txt.includes("伏吟")) return "過去的人或事可能再回來，小心別重蹈覆轍，也可以趁機把舊問題收個尾";
+ if(txt.includes("刑")) return "人際摩擦、口舌是非或自己心裡打結會比較多，放寬心，簽約和文件看仔細一點";
+ if(txt.includes("害")) return "留意暗地裡的不合或小人，低調一點、少捲進是非";
+ if(txt.includes("助喜用")) return "有貴人或好機緣來幫忙，值得主動把握、順勢往前";
+ if(txt.includes("沖")) return "相關的位置會有變動，順著調整、別硬碰硬";
  return null;
 }
 function periodAdvice(ana){
@@ -475,6 +520,96 @@ function renderRels(container,rels,emptyMsg){
   container.innerHTML=rels.map(r=>`<span class="rel ${r.kind}"><span class="tag">${relTagName(r.kind)}</span>${r.txt}</span>`).join("");
 }
 
+function assessLuckPillar(R, L){
+  const els=[GAN_EL[L.g], ZHI_EL[L.z]];
+  const items=[{z:R.yZ,label:"年"},{z:R.mZ,label:"月"},{z:R.dZ,label:"日"}];
+  if(!R.nohour) items.push({z:R.hZ,label:"時"});
+  items.push({z:L.z,label:"運"});
+  const rels=branchRels(items).filter(r=>r.zlist.includes(L.z)&&r.zlist.length>1);
+  rels.forEach(r=>{if(r.kind==="he"&&r.el!=null)els.push(r.el);});
+  let good=0,bad=0;
+  els.forEach(e=>{if(R.xi.includes(e))good++;if(R.ji.includes(e))bad++;});
+  rels.forEach(r=>{if(r.kind==="chong")bad+=0.5;else if(r.kind==="xing"||r.kind==="hai")bad+=0.25;});
+  return good>bad?"吉":bad>good?"凶":"平";
+}
+function pillarFav(R,g,z){let good=0,bad=0;[GAN_EL[g],ZHI_EL[z]].forEach(e=>{if(R.xi.includes(e))good++;if(R.ji.includes(e))bad++;});return good>bad?"吉":bad>good?"凶":"平";}
+
+function lifeReadingParas(R){
+  const E=EL_NAME;
+  const xi=R.xi.map(e=>E[e]).join("、");
+  const ji=R.ji.length?R.ji.map(e=>E[e]).join("、"):"";
+  const colors=[...new Set(R.xi.map(e=>WX_APPLY[e].color))].join("、");
+  const dirs=[...new Set(R.xi.map(e=>WX_APPLY[e].dir))].join("、");
+  const fields=[...new Set(R.xi.map(e=>WX_APPLY[e].field))].join("、");
+  const colorsShort=[...new Set(R.xi.map(e=>WX_APPLY[e].color.split("、")[0]))].join("、");
+  const fieldsShort=[...new Set(R.xi.map(e=>WX_APPLY[e].field.split("、")[0]))].join("、");
+  const trait=(GAN_IMG[R.dG].split("——")[1]||GAN_IMG[R.dG]);
+  const gs=[R.yG,R.mG]; if(!R.nohour) gs.push(R.hG);
+  const zs=[R.yZ,R.mZ,R.dZ]; if(!R.nohour) zs.push(R.hZ);
+  const tens=new Set();
+  gs.forEach(g=>tens.add(ten(R.dG,g)));
+  zs.forEach(z=>HIDE[z].forEach(g=>tens.add(ten(R.dG,g))));
+  const has=n=>tens.has(n);
+  const hasCai=has("正財")||has("偏財"), hasGuan=has("正官")||has("七殺"), hasYin=has("正印")||has("偏印"), hasShi=has("食神")||has("傷官");
+  const male=R.sex==="m";
+  const dzChong=R.natalRels.some(r=>r.kind==="chong"&&r.zlist.includes(R.dZ));
+  const dzXing=R.natalRels.some(r=>r.kind==="xing"&&r.zlist.includes(R.dZ));
+  const paras=[];
+
+  const strongLine=R.strong==="偏弱"?"這代表你需要外來的支援與依靠，單打獨鬥會比較吃力，但只要有貴人、團隊相助便能成事；":R.strong==="偏旺"?"這代表你本身能量充沛、主見也強，適合把力氣往外發揮、主動開創；":"這代表你在進退之間較能拿捏，是相對好調理、能屈能伸的格局；";
+  paras.push(`你是<b>${GAN[R.dG]}（${E[R.de]}）</b>命，${trait}這就是你最底層的本色。命盤裡你本人的力量<b>${R.strong}</b>，${strongLine}對你最有利的五行是 <b>${xi}</b>${ji?`，比較不利的是 ${ji}`:""}。一生的順逆，大方向就看行運有沒有把這些有利的五行帶到身邊——帶到了便如順水行舟，帶不到時則要多費些氣力來經營。`);
+
+  const t0=R.topTen[0]&&R.topTen[0][0], t1=R.topTen[1]&&R.topTen[1][0], t2=R.topTen[2]&&R.topTen[2][0];
+  let p2=`性情上，除了前述的本色，命中又以「${R.topTen.map(t=>t[0]).join("」、「")}」這幾種特質格外鮮明：`;
+  if(t0&&SS_STANCE[t0]) p2+=SS_STANCE[t0];
+  if(t1&&SS_STANCE[t1]) p2+=SS_STANCE[t1];
+  if(t2&&SS_STANCE[t2]) p2+=SS_STANCE[t2];
+  p2+=R.strong==="偏旺"?"整體而言你有股不服輸的勁，只要懂得收放、給情緒留條退路，便能把個性化為助力。":R.strong==="偏弱"?"整體而言你較細膩、也在意他人，學會適時為自己發聲、不過度承擔，路會走得更輕鬆。":"整體而言你性情較持平，能在不同場合間靈活轉換，這是你討喜也好相處的地方。";
+  paras.push(p2);
+
+  const yf=pillarFav(R,R.yG,R.yZ), mf=pillarFav(R,R.mG,R.mZ);
+  const early=(yf==="吉"&&mf!=="凶")?"早年的根基與長輩之蔭大致不錯，成長環境給得上助力":(yf==="凶"||mf==="凶")?"早年需要較多自立，成長路上環境多變或助力有限，是先苦後甘的格局":"早年平順中帶些起伏，靠自己也靠機緣，慢慢站穩";
+  let p3=`家庭與早年方面，年柱、月柱象徵祖上、父母與你長大的環境——${early}。`;
+  p3+=hasYin?"命中有印星，與母親、長輩或師長的緣分較深，也利於讀書、進修，一生常有貴人在背後扶持。":"印星不顯，許多事得靠自己摸索打拚，文憑學歷未必是你發揮的主舞台，實作與歷練反而更能成就你。";
+  if(!R.nohour){const hf=pillarFav(R,R.hG,R.hZ);p3+=hf==="吉"?"至於時柱所代表的子女與晚景，配置得宜，老來多有依靠、與子女的緣分也佳。":hf==="凶"?"至於時柱所代表的子女與晚景，較需用心經營，晚年的生活宜及早替自己安排打算。":"至於時柱所代表的子女與晚景，大致平順，順其自然即可。";}
+  paras.push(p3);
+
+  let cw=(hasCai&&R.strong!=="偏弱")?"命中財星有根，加上你日主夠旺、擔得起，求財務實、也有積累守成之力":(hasCai&&R.strong==="偏弱")?"命中見財，但日主偏弱，常有「機會看得到、力氣不太夠」之感，宜結伴、借力，別事事獨扛":"命中財星不算明顯，財富多隨本事與名聲而來，把專業做深、口碑做穩，財自然跟著走";
+  if(hasGuan) cw+="；又見官殺，適合在組織、制度或專業領域承擔職務、扛起責任，能受人之託";
+  if(hasShi) cw+="；食傷亦顯，靠才華、表達與創意生財也是你的一條路";
+  paras.push(`事業與財運上，${cw}。論方向，與你五行相合的領域——像 <b>${fieldsShort}</b> 等——較能借力使力；行事時多親近 ${colorsShort} 色系、往 ${dirs} 發展，是傳統認為的助運之道，可當作選擇時的參考。`);
+
+  const hasStar=male?hasCai:hasGuan;
+  let p5=`感情婚姻看日支（配偶宮）。`;
+  p5+=hasStar?`你的配偶星（${male?"財":"官"}）在命中可見，感情路上不乏對象與緣分`:`命中配偶星（${male?"財":"官"}）不算明顯，姻緣或來得較晚、或需要你更主動去把握`;
+  p5+=dzChong?"；但配偶宮逢沖，婚後在感情、居所上較易有變動或聚少離多，相處重在多溝通，晚一點成家反而更穩。":dzXing?"；配偶宮帶刑，兩人相處間磨合、口角會多一些，把話講開、互留空間是長久之道。":"；配偶宮尚稱安穩，感情上少有大風大浪，平實相守是你的福氣。";
+  paras.push(p5);
+
+  const v=R.luck.map(L=>({L,v:assessLuckPillar(R,L)}));
+  const stage=arr=>{const g=arr.filter(x=>x.v==="吉").length,b=arr.filter(x=>x.v==="凶").length;return g>b?"大致順遂、可放手經營":b>g?"考驗較多、宜守穩蓄力":"平穩中見起伏";};
+  const early3=v.slice(0,3), mid2=v.slice(3,5), late=v.slice(5);
+  const ageR=arr=>arr.length?`約 ${arr[0].L.age}–${arr[arr.length-1].L.age+9} 歲`:"";
+  const goodOnes=v.filter(x=>x.v==="吉").map(x=>`${GAN[x.L.g]}${ZHI[x.L.z]}（${x.L.age}歲起）`);
+  let p6=`行運方面，你大約 <b>${R.startAge}</b> 歲起換大運。青年階段（${ageR(early3)}）${stage(early3)}；中年（${ageR(mid2)}）${stage(mid2)}；中晚年（${ageR(late)}）${stage(late)}。`;
+  p6+=goodOnes.length?`其中 ${goodOnes.slice(0,3).join("、")} 這幾步走得到對你有利的五行，是較值得把握、放手去衝的好運段。`:`整段運勢起伏較平，沒有特別突出的大好之運，但也少有大凶，穩穩經營便能積少成多。`;
+  const tough=v.filter(x=>x.v==="凶").map(x=>`${GAN[x.L.g]}${ZHI[x.L.z]}（${x.L.age}歲起）`);
+  if(tough.length) p6+=`而 ${tough.slice(0,2).join("、")} 等運所帶來的五行對你較不利、或與命盤起沖剋，這幾段宜守不宜攻，把腳步放穩、少做高風險的決定。`;
+  paras.push(p6);
+
+  const goodCount=v.filter(x=>x.v==="吉").length;
+  const total=goodCount>=4?"你的命格底子不差，行運中助力不少，懂得在好運時積極、在低谷時收斂，一生可成可守":goodCount>=2?"你的命格需要後天多用一點心經營，但只要走對方向、抓住那幾段好運，逆境也能一一化開":"你走的是大器晚成、厚積薄發的路，前段多磨，但磨出來的底氣會在後頭回報你";
+  const stanceTip=R.strong==="偏弱"?"凡事善用貴人與團隊、別孤軍奮戰":R.strong==="偏旺"?"把旺盛的能量往外發揮、也記得給人留餘地":"守住自己的節奏、順勢而為";
+  let p7=`總的來說，${total}。趨吉的關鍵，在於多親近對你有利的 <b>${xi}</b>（${colorsShort} 色系、${dirs} 方位、${fieldsShort}等領域），處世上${stanceTip}`;
+  if(dzChong||dzXing||R.natalRels.some(r=>r.kind==="xing")) p7+="；命中帶些刑沖，遇到人事的牽絆與變動時，多一分耐性與溝通，便能逢凶化吉";
+  p7+="。最後一句老話：命是先天的底盤，運是後天的時機，真正的吉凶，終究取決於你自己怎麼選擇與經營。";
+  paras.push(p7);
+
+  return paras;
+}
+function renderLife(R){
+  document.getElementById("lifeReading").innerHTML=lifeReadingParas(R).map((p,i)=>`<p${i===0?' class="lead"':''}>${p}</p>`).join("");
+}
+
 function render(R){
   CURRENT=R;
   const sx=R.sex==="m"?"乾造（男）":"坤造（女）";
@@ -514,6 +649,7 @@ function render(R){
   for(let k=cells.length-per;k<cells.length;k++) cells[k].style.borderBottom="none";
 
   renderRels(document.getElementById("natalRels"),R.natalRels,"四支之間無明顯刑沖合會，地支關係平和。");
+  renderLife(R);
 
   // 五行
   const colorVar={"木":"--mu","火":"--huo","土":"--tu","金":"--jin","水":"--shui"};
@@ -526,19 +662,19 @@ function render(R){
   // 旺衰
   const sc=R.strong==="偏旺"?"--huo":R.strong==="偏弱"?"--shui":"--mu";
   document.getElementById("verdict").innerHTML=
-    `<div class="vbox"><div class="vt">日　主</div><div class="vv e${EL_NAME[R.de]}">${GAN[R.dG]}（${EL_NAME[R.de]}）</div></div>`+
-    `<div class="vbox"><div class="vt">旺　衰</div><div class="vv" style="color:var(${sc})">${R.strong}</div><div class="wt" style="color:var(--muted);font-size:11px;margin-top:4px">扶 ${R.fu.toFixed(1)} ／ 抑 ${R.ke.toFixed(1)}${R.comboNote.length?'　含成局加權':''}</div></div>`;
+    `<div class="vbox"><div class="vt">日主・你本人</div><div class="vv e${EL_NAME[R.de]}">${GAN[R.dG]}（${EL_NAME[R.de]}）</div></div>`+
+    `<div class="vbox"><div class="vt">命格強弱</div><div class="vv" style="color:var(${sc})">${R.strong}</div><div class="wt" style="color:var(--muted);font-size:11px;margin-top:4px">扶 ${R.fu.toFixed(1)} ／ 抑 ${R.ke.toFixed(1)}${R.comboNote.length?'　含成局加權':''}</div></div>`;
   const xiN=R.xi.map(e=>`<span class="pill e${EL_NAME[e]}">${EL_NAME[e]}</span>`).join("");
   const jiN=R.ji.length?R.ji.map(e=>`<span class="pill e${EL_NAME[e]}">${EL_NAME[e]}</span>`).join(""):'<span class="pill">—</span>';
   document.getElementById("useful").innerHTML=
-    `<div style="font-size:13px;color:var(--muted);letter-spacing:.1em;margin-bottom:6px">喜用五行（扶抑法）</div>${xiN}`+
-    `<div style="font-size:13px;color:var(--muted);letter-spacing:.1em;margin:14px 0 6px">忌神五行</div>${jiN}`+
+    `<div style="font-size:13px;color:var(--muted);letter-spacing:.1em;margin-bottom:6px">對你有利的五行（喜用）</div>${xiN}`+
+    `<div style="font-size:13px;color:var(--muted);letter-spacing:.1em;margin:14px 0 6px">對你不利的五行（忌神）</div>${jiN}`+
     (R.comboNote.length?`<div style="margin-top:14px;font-size:12.5px;color:var(--muted);line-height:1.8">成局加權：${R.comboNote.join("、")}</div>`:"")+
     (R.tiaohou?`<div style="margin-top:10px;font-size:13px;color:var(--paper-dim);line-height:1.8">調候參考：${R.tiaohou}</div>`:"");
 
   // 大運
   document.getElementById("luckMeta").innerHTML=
-    `排法：${R.forward?'順行':'逆行'}（${R.sex==='m'?'男':'女'}命・年干${GAN_YIN[R.yG]===0?'陽':'陰'}）　起運約 <b>${R.startAge}</b> 歲 ${R.startMon} 個月（三日折一年估算）`;
+    `排法：${R.forward?'順行':'逆行'}（${R.sex==='m'?'男':'女'}命・年干${GAN_YIN[R.yG]===0?'陽':'陰'}）　約 <b>${R.startAge}</b> 歲 ${R.startMon} 個月開始走第一步大運（起運，估算值）`;
   document.getElementById("luck").innerHTML=R.luck.map(L=>
     `<div class="lk"><div class="age">${L.age}–${L.age+9}歲</div><div class="lg"><span class="e${EL_NAME[GAN_EL[L.g]]}">${GAN[L.g]}</span><span class="e${EL_NAME[ZHI_EL[L.z]]}">${ZHI[L.z]}</span></div><div class="lt">${L.ten}</div></div>`).join("");
 
@@ -552,25 +688,25 @@ function render(R){
   renderNatalAdvice(R);
 
   let p1=`<p class="lead"><b>日主 ${GAN[R.dG]}：</b>${GAN_IMG[R.dG]}</p>`;
-  let p2=`<p>整體看，此命日主<b>${R.strong}</b>`;
-  if(R.strong==="偏弱") p2+=`，五行力量偏向洩、剋日主，故喜「印」來生、「比劫」來幫；最忌再行財、官、食傷之地耗洩。`;
-  else if(R.strong==="偏旺") p2+=`，日主得令得勢、自身有餘，反喜「食傷」吐秀、「財」「官」來制衡耗用；不宜再添印、比之助。`;
-  else p2+=`，五行較為均停，無明顯偏枯，行運時順著當令喜用、避開沖剋，多能平穩；貴在『守中』。`;
-  p2+=`喜用五行為 <b>${R.xi.map(e=>EL_NAME[e]).join("、")}</b>。</p>`;
+  let p2=`<p>整體看，你本人（日主）的力量<b>${R.strong}</b>`;
+  if(R.strong==="偏弱") p2+=`——也就是偏弱、需要支援：適合有長輩、貴人、學習這類力量來扶持，也喜歡同伴幫襯；最怕再把力氣耗在賺錢、扛責任、過度付出上。`;
+  else if(R.strong==="偏旺") p2+=`——也就是偏強、能量有餘：反而適合把力氣用出去，靠發揮才華、賺錢、承擔事業來消耗平衡；不需要再多的扶持。`;
+  else p2+=`——五行算均勻、沒有明顯缺角，行運時順著對你有利的五行、避開衝突，大多能平穩；重點在守住中道、別走極端。`;
+  p2+=`對你有利的五行是 <b>${R.xi.map(e=>EL_NAME[e]).join("、")}</b>。</p>`;
 
-  let p3=`<p><b>十神分布：</b>命中以 `+topTen.map(t=>`「${t[0]}」`).join("、")+` 較為突出——`+topTen.map(t=>SS_MEAN[t[0]]).slice(0,2).join("；")+`。這幾類力量較顯，相應的人生面向往往著墨較多。</p>`;
+  let p3=`<p><b>性格與際遇的重點：</b>命裡以 `+topTen.map(t=>`「${t[0]}」`).join("、")+`（十神）這幾種角色比較突出——`+topTen.map(t=>SS_MEAN[t[0]]).slice(0,2).join("；")+`。這幾塊在你人生裡通常著墨比較多。</p>`;
 
   // 地支關係的解讀
-  let relSent=[];
+  const relSent=[];
   R.natalRels.forEach(r=>{
-    if(r.zlist.includes(R.dZ)&&r.kind==="chong") relSent.push("日支（配偶宮）逢沖，主感情、住所或自身環境較易變動");
-    else if(r.zlist.includes(R.mZ)&&r.kind==="chong") relSent.push("月令（提綱）逢沖，主成長環境或事業根基動盪、轉折較多");
-    else if(r.kind==="xing") relSent.push(`命帶${r.txt}，人際或自身易有牽絆、磨擦，宜修身養性`);
-    else if(r.kind==="he"&&r.el!=null) relSent.push(`地支${r.txt}，相關五行凝聚成勢，是命局的重心之一`);
+    if(r.zlist.includes(R.dZ)&&r.kind==="chong") relSent.push("代表婚姻感情的位置（日支）有衝動，感情、住的地方或自身環境比較容易變動");
+    else if(r.zlist.includes(R.mZ)&&r.kind==="chong") relSent.push("代表根基的位置（月柱）有衝動，成長環境或事業根基的起伏、轉折比較多");
+    else if(r.kind==="xing") relSent.push(`命裡有「${r.txt}」，人際或自己心裡比較容易有牽絆、摩擦，放寬心為上`);
+    else if(r.kind==="he"&&r.el!=null) relSent.push(`地支有「${r.txt}」，相關的五行力量凝聚、是命盤的重心之一`);
   });
-  let p4 = relSent.length? `<p><b>地支動向：</b>${[...new Set(relSent)].slice(0,3).join("；")}。</p>` : "";
-  let p5 = missing.length? `<p><b>五行${missing.join("、")}缺：</b>該領域能量需後天補濟或藉行運引動；若大運流年補上喜用之缺，往往是轉機所在。</p>` : "";
-  let p6=`<p style="color:var(--paper-dim)">大運與流年的吉凶，核心是看它帶來的五行<b>是喜用還是忌神</b>，再參酌地支與命局的合沖刑害：逢喜用、地支來合助多順遂，逢忌神或沖剋提綱、日支則宜守成。可用上方流年功能逐年查看。</p>`;
+  let p4 = relSent.length? `<p><b>命盤裡的牽動：</b>${[...new Set(relSent)].slice(0,3).join("；")}。</p>` : "";
+  let p5 = missing.length? `<p><b>命中缺${missing.join("、")}：</b>代表這方面的能量先天比較少，可以靠後天努力或好的運勢來補；當大運、流年補上你欠缺又有利的五行時，往往就是轉機。</p>` : "";
+  let p6=`<p style="color:var(--paper-dim)">每一步大運、每一年好不好，重點是看它帶來的五行<b>對你有利還是不利</b>，再搭配地支之間是相助還是衝突：帶來有利的五行、又有地支來相助，多半順；帶來不利的五行、或衝動到根基與感情的位置，就適合守穩。可以用上面的流年功能一年一年查看。</p>`;
 
   document.getElementById("read").innerHTML=p1+p2+p3+p4+p5+p6;
 }
@@ -674,9 +810,9 @@ function renderLiunianDetail(R, year){
   let relsHtml = a.rels.length ? `<div class="rels" style="margin-top:10px">`+a.rels.map(r=>`<span class="rel ${r.kind}"><span class="tag">${relTagName(r.kind)}</span>${r.txt}</span>`).join("")+`</div>` : `<div class="nonote">流年地支與命局、大運無明顯刑沖合會。</div>`;
   let flagsHtml = a.flags.length ? a.flags.map(f=>`<span class="flag ${f.bad?'':'good'}">${f.txt}</span>`).join("") : "";
   let summary;
-  if(a.verdict==="吉") summary=`流年帶來喜用之氣${a.xiHit.length?`（${[...new Set(a.xiHit)].join("、")}）`:""}，整體偏向順遂，宜把握、主動進取。`;
-  else if(a.verdict==="凶") summary=`流年引動忌神${a.jiHit.length?`（${[...new Set(a.jiHit)].join("、")}）`:""}或沖剋要支，宜守成、緩進，留意上列提醒。`;
-  else summary=`流年喜忌相參、力量相抵，平順之年；順勢而為、避開明顯沖剋即可。`;
+  if(a.verdict==="吉") summary=`這一年帶來對你有利的五行${a.xiHit.length?`（${[...new Set(a.xiHit)].join("、")}）`:""}，整體比較順，適合把握機會、放手去做。`;
+  else if(a.verdict==="凶") summary=`這一年出現對你不利的五行${a.jiHit.length?`（${[...new Set(a.jiHit)].join("、")}）`:""}，或跟命盤的重要位置起衝突；建議守穩、別急著衝，多留意上面的提醒。`;
+  else summary=`這一年好壞參半、力量大致互相抵消，算平順的一年；順著情勢走、避開明顯的衝突就好。`;
 
   const advLines=periodAdvice(a);
   const adviceBlock=advLines.length?`<div class="advice"><div class="atitle">流年建議</div>${advLines.map(x=>`<div class="aitem">${x}</div>`).join("")}</div>`:"";
@@ -684,9 +820,9 @@ function renderLiunianDetail(R, year){
     `<div class="ln-head">
        <div class="ln-gz"><span class="${elc(GAN_EL[a.g])}">${GAN[a.g]}</span><span class="${elc(ZHI_EL[a.z])}">${ZHI[a.z]}</span></div>
        <div class="ln-vd vd-${a.verdict}">${a.verdict}</div>
-       <div class="ln-meta">${year} 年・虛歲約 ${a.realAge+1}<br>流年十神：<b>${a.tenG}</b>（天干）／ <b>${a.tenZ}</b>（地支本氣）</div>
+       <div class="ln-meta">${year} 年・虛歲約 ${a.realAge+1}<br>這年扮演的角色（十神）：<b>${a.tenG}</b>（天干）／ <b>${a.tenZ}</b>（地支）</div>
      </div>
-     <div class="ln-meta">所屬大運：${dyTxt}</div>
+     <div class="ln-meta">落在哪一步大運：${dyTxt}</div>
      ${relsHtml}
      ${flagsHtml?`<div style="margin-top:12px">${flagsHtml}</div>`:""}
      <div class="ln-meta" style="margin-top:14px;color:var(--paper)">${summary}</div>
@@ -719,16 +855,16 @@ function renderLiuyueDetail(R, year, n){
   let relsHtml=a.rels.length?`<div class="rels" style="margin-top:10px">`+a.rels.map(r=>`<span class="rel ${r.kind}"><span class="tag">${relTagName(r.kind)}</span>${r.txt}</span>`).join("")+`</div>`:`<div class="nonote">本月地支與命局、流年、大運無明顯刑沖合會。</div>`;
   let flagsHtml=a.flags.length?a.flags.map(f=>`<span class="flag ${f.bad?'':'good'}">${f.txt}</span>`).join(""):"";
   let summary;
-  if(a.verdict==="吉") summary=`本月得喜用之氣${a.xiHit.length?`（${[...new Set(a.xiHit)].join("、")}）`:""}，宜把握、主動推進。`;
-  else if(a.verdict==="凶") summary=`本月引動忌神${a.jiHit.length?`（${[...new Set(a.jiHit)].join("、")}）`:""}或逢沖剋，宜緩進、守成。`;
-  else summary=`本月喜忌相參，平順之月，順勢而為即可。`;
+  if(a.verdict==="吉") summary=`這個月帶來對你有利的五行${a.xiHit.length?`（${[...new Set(a.xiHit)].join("、")}）`:""}，適合把握、主動把事情往前推。`;
+  else if(a.verdict==="凶") summary=`這個月出現對你不利的五行${a.jiHit.length?`（${[...new Set(a.jiHit)].join("、")}）`:""}，或有衝突，建議放慢腳步、守穩一點。`;
+  else summary=`這個月好壞參半，算平順，順著情勢走就好。`;
   const advLines=periodAdvice(a);
   const adviceBlock=advLines.length?`<div class="advice"><div class="atitle">本月建議</div>${advLines.map(x=>`<div class="aitem">${x}</div>`).join("")}</div>`:"";
   document.getElementById("lyDetail").innerHTML=
     `<div class="ln-head">
        <div class="ln-gz"><span class="${elc(GAN_EL[a.g])}">${GAN[a.g]}</span><span class="${elc(ZHI_EL[a.z])}">${ZHI[a.z]}</span></div>
        <div class="ln-vd vd-${a.verdict}">${a.verdict}</div>
-       <div class="ln-meta">${MONTH_NAME[n]}月（約 ${JIE_DATE[n]} 起）<br>流月十神：<b>${a.tenG}</b>（天干）／ <b>${a.tenZ}</b>（地支本氣）</div>
+       <div class="ln-meta">${MONTH_NAME[n]}月（約 ${JIE_DATE[n]} 起）<br>這個月扮演的角色（十神）：<b>${a.tenG}</b>（天干）／ <b>${a.tenZ}</b>（地支）</div>
      </div>
      ${relsHtml}
      ${flagsHtml?`<div style="margin-top:12px">${flagsHtml}</div>`:""}
@@ -815,6 +951,7 @@ function buildReportHTML(R, year){
   return `<h1>八字命書</h1><div class="r-sub">子平四柱 · 大運 · 流年 · 流月</div><div class="r-rule"></div>`+
     `<div class="r-meta"><b>${sx}</b>　西元 ${R.y}-${String(R.mo).padStart(2,'0')}-${String(R.d).padStart(2,'0')} ${R.nohour?'(時辰不詳)':String(R.h).padStart(2,'0')+':'+String(R.mi).padStart(2,'0')}<br>八字：<b>${bz}</b></div>`+
     `<h2>命盤四柱</h2>${chart}<div style="margin-top:12px">${relsHtml}</div>`+
+    `<h2>一生批命總覽</h2><div>${lifeReadingParas(R).map(p=>`<p class="life-p">${p}</p>`).join("")}</div>`+
     `<h2>五行・旺衰・用神</h2><div class="r-meta">五行分布：${wx}<br>日主：<b class="${elc(R.dG)}">${GAN[R.dG]}（${EL_NAME[R.de]}）</b>　旺衰：<b>${R.strong}</b>（扶 ${R.fu.toFixed(1)}／抑 ${R.ke.toFixed(1)}）</div>`+
     `<div class="r-meta" style="margin-top:8px">喜用五行：${xiP}　　忌神：${jiP}</div>`+
     `<h2>大運</h2>${luck}<div class="r-meta" style="margin-top:8px">${R.forward?'順行':'逆行'}　起運約 <b>${R.startAge}</b> 歲 ${R.startMon} 個月</div>`+
